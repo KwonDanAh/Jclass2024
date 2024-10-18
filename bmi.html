@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체질량지수 계산기</title>
+
+    <link type="text/css" rel="stylesheet" href="mtstyle.css">
+    
+</head>
+<body>
+
+    <header>
+        <h1>Veggie Shop</h1>
+    </header>
+    <nav> 
+        <ul>
+            <li><a href = "#fruits" target="_blank"> Fresh Fruits </a></li>
+            <li><a href = "#veggies"> Fresh Veggies </a></li>
+            <li><a href="#salads">Fresh Salads</a></li>
+            <li>Seeds and Nuts</li>
+            <li>Gift Box</li>
+            <li><a href="login.html" target="_blank"> 로그인</a> </li>
+            <li><a href="signup.html" target="_blank">회원가입</a></li>
+        </ul>
+    </nav>    
+
+    <h1>체질량지수 계산기</h1>
+체중(kg): <input id="weight">
+<br>
+신장(m): <input id="height">
+
+<input type="button" value="계산" onclick="calc();">
+<h3 id="result"></h3>
+<h3 id="result2"></h3>
+
+<button onclick="sub">눌러주세요!</button>
+
+    <script>
+
+        function calc(){
+
+            let x = document.getElementById("weight").value;
+            let y = document.getElementById("height").value;
+
+            let bmi = x / (y * y);
+            document.getElementById("result").innerHTML = bmi;
+
+            if (bmi>=25){
+                document.getElementById("result2").innerHTML = "비만입니다.";
+            }
+            else if((bmi>=23) && (bmi<25)){ // bmi>=23
+                document.getElementById("result2").innerHTML = "과체중입니다.";
+            }
+            else if((bmi>=18.5) && (bmi<23)){ // bmi>=18.5
+                document.getElementById("result2").innerHTML = "정상입니다.";
+            }
+            else{
+                document.getElementById("result2").innerHTML = "저체중입니다.";
+            }
+        }
+
+        function sub(){
+            const name = prompt('이름을 입력해주세요.');
+            document.getElementById("test").innerHTML = "welcome" + name;
+        }
+    </script>
+
+</body>
+</html>
